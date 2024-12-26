@@ -2792,6 +2792,21 @@
 				},
 				{
 					"name": "User Service list",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "23ae554f-29ea-46dc-ac17-a914cd5fc2ef",
+								"exec": [
+									"pm.test(\"Status code is 200\", () => {\r",
+									"    pm.expect(pm.response.code).to.equal(200);\r",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"id": "6d58a76d-8e26-417c-8500-592a0d6c7bbf",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -2805,7 +2820,7 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseUrl}}/users?skip=<string>&limit=<string>&select=<string>,<string>",
+							"raw": "{{baseUrl}}/users?skip=1&limit=3",
 							"host": [
 								"{{baseUrl}}"
 							],
@@ -2815,15 +2830,16 @@
 							"query": [
 								{
 									"key": "skip",
-									"value": "<string>"
+									"value": "1"
 								},
 								{
 									"key": "limit",
-									"value": "<string>"
+									"value": "3"
 								},
 								{
 									"key": "select",
-									"value": "<string>,<string>"
+									"value": "<string>,<string>",
+									"disabled": true
 								}
 							]
 						}
@@ -2972,11 +2988,35 @@
 			"id": "29281e1f-c745-41b1-b5d2-decc56e693a0"
 		}
 	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "027a9a0c-cef8-40a8-859f-ece50aee2cda",
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "dba45284-3a73-48a1-babc-732671363c28",
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
 	"variable": [
 		{
-			"id": "17e06688-9832-4e88-879a-d38688768950",
+			"id": "c58b9b59-0296-49b4-b44c-84f1d45d2b7b",
 			"key": "baseUrl",
-			"value": "/postman"
+			"value": "http://http.hexlet.app/postman"
 		}
 	]
 }
